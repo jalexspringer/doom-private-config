@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: org_image
+# key: oimg
+# --
+#+ATTR_ORG: :width 700
+#+ATTR_HTML: :width 750
