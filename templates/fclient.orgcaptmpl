@@ -1,0 +1,11 @@
+*** %^{Client Name} :f7:client:
+:PROPERTIES:
+:CREATED: %U
+:Status: %^{Status|prospect|customer}
+:END:
+**** Contacts
+**** Meetings
+**** Tasks
+**** Notes
+%?
+**** Questions

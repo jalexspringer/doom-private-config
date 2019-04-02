@@ -1,0 +1,11 @@
+*** %^{Client Name} :impact:client:
+:PROPERTIES:
+:CREATED: %U
+:Status: %^{Status|prospect|customer}
+:END:
+**** Contacts
+**** Meetings
+**** Tasks
+**** Notes
+%?
+**** Questions

@@ -10,4 +10,5 @@
  :gnime "<f5>" #'org-refile
  :gnime "M-<f9>" #'org-capture-refile
  :gnime "M-<f8>" #'org-capture-kill
- )
+ ;; :gnime "M-<f11>" #'find-file "~/org/capture.org"
+ )                                                                         

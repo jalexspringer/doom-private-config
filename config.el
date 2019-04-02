@@ -6,12 +6,8 @@
   user-full-name "Alex Springer"
   user-email-address "jalexspringer@gmail.com")
 
-;; lang/org
-(setq org-directory (expand-file-name "~/org/")
-      org-agenda-files (list org-directory)
-      org-bullet-bullet-list '("#"))
+(set-face-attribute 'default nil :height 120)
 
 (load! "+bindings")
 (load! "+org")
-
 (setq confirm-kill-emacs nil)

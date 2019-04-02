@@ -1,0 +1,14 @@
+*** %^{Client Name} :%^{Company|F7|IM}:
+:PROPERTIES:
+:CREATED: %U
+:Status: %^{Status|prospect|customer}
+:Region: %^{Region|US|EMEA|APAC}
+:END:
+**** %\1 Contacts
+**** TODO %\1 Follow Ups [/]
+**** %\1 Sessions
+***** %U Initial Create
+%?
+**** %\1 Questions
+**** Time
+%(org-clock-report)
