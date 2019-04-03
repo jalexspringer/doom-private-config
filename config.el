@@ -22,3 +22,31 @@
      ("/lists"     . ?l)
      ("/work"      . ?w)
      ("/sent"      . ?s)))
+
+(setq doom-modeline-icon t)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-major-mode-color-icon t)
+
+(setq doom-modeline-env-enable-python t)
+(setq doom-modeline-env-python-executable "python3.7")
+(setq doom-modeline-mu4e t)
+(setq find-file-visit-truename t)
+
+(setq mu4e-alert-mode-line t)
+(mu4e-alert-set-default-style 'libnotify)
+(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(alert-add-rule :category "mu4e-alert" :style 'fringe :predicate (lambda (_) (string-match-p "^mu4e-" (symbol-name major-mode))) :continue t)
+(setq mu4e-alert-email-notification-types '(subjects))
+(setq mu4e-alert-interesting-mail-query
+      (concat
+       "flag:unread"
+       " AND NOT flag:trashed"
+       " AND NOT maildir:"
+       "\"/flux/All Mail\""))
+
+(setq mu4e-update-interval 30)
+
+(find-file "~/org/home.org")
+(evil-window-vsplit)
+(mu4e)

@@ -1,55 +1,21 @@
 ;;; ~/.doom.d/+slack.el -*- lexical-binding: t; -*-
 
-;; Packages
-;;
+(add-hook 'slack-mode-hook #'emojify-mode)
+(setq slack-buffer-create-on-notify t)
 
-(def-package! slacks
-  :commands (slack-start)
-  :init
-  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-  (setq slack-prefer-current-team t)
-  :config
-  (slack-register-team
-   :name "emacs-slack"
-   :default t
-   :client-id "aaaaaaaaaaa.00000000000"
-   :client-secret "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-   :token "xoxs-sssssssssss-88888888888-hhhhhhhhhhh-jjjjjjjjjj"
-   :subscribed-channels '(test-rename rrrrr)
-   :full-and-display-names t)
+;;; Channels
+(setq slack-message-notification-title-format-function
+      (lambda (_team room threadp)
+        (concat (if threadp "Thread in #%s") room)))
 
-  (slack-register-team
-   :name "test"
-   :client-id "3333333333.77777777777"
-   :client-secret "cccccccccccccccccccccccccccccccc"
-   :token "xoxs-yyyyyyyyyy-zzzzzzzzzzz-hhhhhhhhhhh-llllllllll"
-   :subscribed-channels '(hoge fuga))
+(defun endless/-cleanup-room-name (room-name)
+  "Make group-chat names a bit more human-readable."
+  (replace-regexp-in-string
+   "--" " "
+   (replace-regexp-in-string "#mpdm-" "" room-name)))
 
-  (evil-define-key 'normal slack-info-mode-map
-    ",u" 'slack-room-update-messages)
-  (evil-define-key 'normal slack-mode-map
-    ",c" 'slack-buffer-kill
-    ",ra" 'slack-message-add-reaction
-    ",rr" 'slack-message-remove-reaction
-    ",rs" 'slack-message-show-reaction-users
-    ",pl" 'slack-room-pins-list
-    ",pa" 'slack-message-pins-add
-    ",pr" 'slack-message-pins-remove
-    ",mm" 'slack-message-write-another-buffer
-    ",me" 'slack-message-edit
-    ",md" 'slack-message-delete
-    ",u" 'slack-room-update-messages
-    ",2" 'slack-message-embed-mention
-    ",3" 'slack-message-embed-channel
-    "\C-n" 'slack-buffer-goto-next-message
-    "\C-p" 'slack-buffer-goto-prev-message)
-   (evil-define-key 'normal slack-edit-message-mode-map
-    ",k" 'slack-message-cancel-edit
-    ",s" 'slack-message-send-from-buffer
-    ",2" 'slack-message-embed-mention
-    ",3" 'slack-message-embed-channel))
-
-(use-package alert
-  :commands (alert)
-  :init
-  (setq alert-default-style 'notifier))
+;;; Private messages and group chats
+(setq slack-message-im-notification-title-format-function
+ (lambda (_team room threadp)
+   (concat (if threadp "Thread in %s")
+           (endless/-cleanup-room-name room))))
