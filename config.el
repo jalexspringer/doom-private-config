@@ -32,6 +32,7 @@
 (setq doom-modeline-mu4e t)
 (setq find-file-visit-truename t)
 
+(setq mu4e-use-fancy-chars t)
 (setq mu4e-alert-mode-line t)
 (mu4e-alert-set-default-style 'libnotify)
 (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
@@ -46,7 +47,14 @@
        "\"/flux/All Mail\""))
 
 (setq mu4e-update-interval 30)
+(setq message-signature
+  (concat
+    "Alex Springer\n"
+    "Solutions Architect\n"
+    "[[https://flux7.com][Flux7]]"))
+
 
 (find-file "~/org/home.org")
 (evil-window-vsplit)
 (mu4e)
+
