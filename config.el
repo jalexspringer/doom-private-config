@@ -47,14 +47,22 @@
        "\"/flux/All Mail\""))
 
 (setq mu4e-update-interval 30)
-(setq message-signature
-  (concat
-    "Alex Springer\n"
-    "Solutions Architect\n"
-    "[[https://flux7.com][Flux7]]"))
+(defun my-mu4e-choose-signature ()
+    "Insert one of a number of sigs"
+      (interactive)
+        (let ((message-signature
+	  (mu4e-read-option "Signature:"
+	   '(("formal" .
+             (concat
+		    "Alex Springer\n"
+		    "Solutions Architect\n"
+		    "[[https://flux7.com][Flux7]]"))
+			 ("informal" .
+			  "Alex\n")))))
+	      (message-insert-signature)))
 
 
-(find-file "~/org/home.org")
-(evil-window-vsplit)
-(mu4e)
+;;(find-file "~/org/home.org")
+;;(evil-window-vsplit)
+;;(mu4e)
 

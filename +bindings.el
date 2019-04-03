@@ -16,7 +16,7 @@
    :desc "Mu4e"                            "m"   #'mu4e
    :desc "Mu4e Bookmarks search"           "b"   #'mu4e-headers-search-bookmark
    :desc "compose-mail"                    "c"   #'compose-mail
-   :desc "Insert signature"                "S"   #'message-insert-signature
+   :desc "Insert signature"                "S"   #'my-mu4e-choose-signature
    :desc "Insert Screenshot"               "s"   #'jas/insert-screenshot
    :desc "Insert Google Photo"             "p"   #'jas/insert-google-image
    :desc "Toggle link display"             "l"   #'org-toggle-link-display))
