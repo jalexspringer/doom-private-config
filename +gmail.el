@@ -27,10 +27,4 @@
 
 (setq message-citation-line-format "On %a, %b %d, %Y, %H:%M %p %f wrote:")
 (setq message-citation-line-function 'message-insert-formatted-citation-line)
-
-;; (add-to-list 'mu4e-bookmarks
-;;   (make-mu4e-bookmark
-;;     :name  "Flux Inbox"
-;;     :query "maildir:/flux/Inbox"
-;;     :key ?f))
 )

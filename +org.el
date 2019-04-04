@@ -1,6 +1,5 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 (after! org
-(set-register ?o (cons 'file "~/org/home.org"))
 (setq org-image-actual-width '(650))
 (setq org-clock-idle-time 10)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
@@ -16,7 +15,7 @@
 (setq org-export-with-toc nil)
 (setq org-export-with-section-numbers nil)
 
-(defvar +jas/org-capture-todo-file "home.org"
+(defvar +jas/org-capture-todo-file "~/org/home.org"
   "Default target for todo entries.
 
 Is relative to `org-directory', unless it is absolute. Is used in Doom's default
@@ -35,25 +34,25 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
 
 (setq org-capture-templates
       '(("t" "Todo" entry
-         (file+headline +jas/org-capture-todo-file "Tasks")
+         (file+headline "~/org/home.org" "Tasks")
          "* TODO %?\n%i\n%a"
          :prepend t :clock-in t :clock-resume t)
 
         ("l" "Lik" entry
-         (file+headline +jas/org-capture-todo-file "Links")
+         (file+headline "~/org/home.org" "Links")
          "* %?\n%i" :prepend t)
 
         ("a" "Ar" entry
-         (file+headline +jas/org-capture-todo-file "Articles")
+         (file+headline "~/org/home.org" "Articles")
          "* TOREAD %?\n%i" :prepend t)
 
         ("c" "Ciet" entry
-         (file+headline +jas/org-capture-todo-file "Clients")
+         (file+headline "~/org/home.org" "Clients")
          (file "/home/jalexspringer/.doom.d/templates/client.orgcaptmpl")
          :prepend t :clock-in t :clock-resume t)
 
         ("n" "Notes" entry
-         (file+headline +jas/org-capture-todo-file "Notes")
+         (file+headline "~/org/home.org" "Notes")
          "* %u %?\n%i" :prepend t :clock-in t :clock-resume t)))
 ;
 ;

@@ -18,12 +18,6 @@
 (load! "+slack")
 (load! "+secrets")
 
-(setq mu4e-maildir-shortcuts
-  '( ("/flux/Inbox"     . ?i)
-     ("/archive"   . ?a)
-     ("/lists"     . ?l)
-     ("/work"      . ?w)
-     ("/sent"      . ?s)))
 
 (setq doom-modeline-icon t)
 (setq doom-modeline-major-mode-icon t)
@@ -43,10 +37,16 @@
 (setq mu4e-alert-email-notification-types '(subjects))
 (setq mu4e-alert-interesting-mail-query
       (concat
-       "flag:unread"
-       " AND NOT flag:trashed"
-       " AND NOT maildir:"
-       "\"/flux/All Mail\""))
+       "maildir:"
+       "\"/flux/Inbox\""
+       " OR maildir:"
+       "\"/impact/Inbox\""
+       "AND flag:unread"))
+
+(setq mu4e-maildir-shortcuts
+  '( ("/flux/Inbox"     . ?f)
+     ("/impact/Inbox"   . ?i)
+     ("/sent"      . ?s)))
 
 (setq mu4e-update-interval 30)
 (defun my-mu4e-choose-signature ()
