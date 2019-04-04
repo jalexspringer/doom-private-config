@@ -26,8 +26,8 @@
      :desc "Select slack rooms"            "a"   #'slack-select-rooms
      :desc "Select slack channel"          "c"   #'slack-channel-select
      :desc "Send regions to slack"         "s"   #'as/send-region-to-slack
-     :desc "Select slack group"            "g"   #'slack-im-select
-     :desc "Select slack im"               "m"   #'slack-group-select
+     :desc "Select slack im"               "m"   #'slack-im-select
+     :desc "Select slack group"            "g"   #'slack-group-select
      :desc "All unread rooms"              "U"   #'slack-select-unread-rooms
      :desc "Unread privates"               "u"   #'as/slack-select-unread-mentions)
  ))

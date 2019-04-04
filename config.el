@@ -38,7 +38,7 @@
   (delete-other-windows)
 
   ;; Start slack and email
-  ;; (slack-start)
+  (slack-start)
   (mu4e)
 
   ;; Move to home.org
@@ -53,4 +53,4 @@
   (window-configuration-to-register ?w))
 
 
-(as/setup-windows)
+;; (as/setup-windows)
