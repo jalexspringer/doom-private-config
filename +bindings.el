@@ -15,6 +15,7 @@
    :desc "Go home"                         "h"   (λ! (find-file "~/org/home.org"))
    :desc "Mu4e"                            "m"   #'mu4e
    :desc "Mu4e Bookmarks search"           "b"   #'mu4e-headers-search-bookmark
+   :desc "Mu4e view actions"               "v"   #'mu4e-view-action
    :desc "compose-mail"                    "c"   #'compose-mail
    :desc "Insert signature"                "S"   #'my-mu4e-choose-signature
    :desc "Insert Screenshot"               "s"   #'jas/insert-screenshot
