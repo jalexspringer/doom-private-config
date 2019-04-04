@@ -15,6 +15,8 @@
 (load! "+bindings")
 (load! "+org")
 (load! "+gmail")
+(load! "+slack")
+(load! "+secrets")
 
 (setq mu4e-maildir-shortcuts
   '( ("/flux/Inbox"     . ?i)

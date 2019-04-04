@@ -1,8 +1,13 @@
 ;;; ~/.doom.d/+slack.el -*- lexical-binding: t; -*-
 
+;; I want to live in Emacs. Living is incomplete without slack, so Emacs needs
+;; to give me the ability to communicate with my teams through slack. It does so
+;; with `emacs-slack', and requires a bunch of shenanigans to authenticate.
+;; See https://github.com/yuya373/emacs-slack for details about the shenanigans.
+
+;;
 ;; Packages
 ;;
-
 (def-package! slack
   :commands (slack-start)
   :init
@@ -18,13 +23,10 @@
    :subscribed-channels '(test-rename rrrrr)
    :full-and-display-names t)
 
-  (slack-register-team
-   :name "test"
-   :client-id "3333333333.77777777777"
-   :client-secret "cccccccccccccccccccccccccccccccc"
-   :token "xoxs-yyyyyyyyyy-zzzzzzzzzzz-hhhhhhhhhhh-llllllllll"
-   :subscribed-channels '(hoge fuga))
-
+  ;; (map!
+  ;;  :map slack-mode-map
+  ;;   ""
+  ;;  )
   (evil-define-key 'normal slack-info-mode-map
     ",u" 'slack-room-update-messages)
   (evil-define-key 'normal slack-mode-map

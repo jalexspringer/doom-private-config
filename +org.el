@@ -63,12 +63,7 @@ Is relative to `org-directory', unless it is absolute. Is used in Doom's default
                             ("F7" . ?f)
                             ("IM" . ?i)
                             ("ME" . ?m)
-                            (:endgroup)
-                            ("WAITING" . ?w)
-                            ("PERSONAL" . ?P)
-                            ("WORK" . ?W)
-                            ("CANCELLED" . ?c)
-                            ("FLAGGED" . ??))))
+                            (:endgroup))))
 
 ; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
