@@ -1,0 +1,20 @@
+#+TITLE: elfeed
+
+* Feeds :elfeed:
+** AWS :aws:
+*** http://feeds.feedburner.com/AmazonWebServicesBlog
+*** https://aws.amazon.com/new/feed
+*** https://awsinsider.net/rss-feeds/news.aspx
+*** http://jayendrapatil.com/feed
+*** https://cloudonaut.io/feed/rss.xml
+*** https://www.reddit.com/r/aws/.rss
+*** https://read.acloud.guru/feed
+*** https://www.trek10.com/blog/feed.xml
+** Chromeos :chromeos:crostini:
+*** https://www.reddit.com/r/Crostini/.rss
+*** https://www.reddit.com/r/chromeos/.rss
+** Emacs :emacs:mustread:
+*** http://www.terminally-incoherent.com/blog/feed
+*** http://nullprogram.com/feed
+*** entry-title: \(emacs\|org-mode\)
+*** http://planet.emacsen.org/atom.xml

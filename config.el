@@ -29,13 +29,16 @@
 (setq doom-modeline-mu4e t)
 (setq find-file-visit-truename t)
 
+(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+(setq-default elfeed-search-filter "@1-week-ago +unread ")
+
 (defun as/setup-windows ()
   "Organize a series of windows for ultimate distraction."
   (interactive)
   (delete-other-windows)
 
   ;; Start slack and email
-  (slack-start)
+  ;; (slack-start)
   (mu4e)
 
   ;; Move to home.org
@@ -45,8 +48,9 @@
 
   ;; My RSS Feed goes on top:
   (split-window-vertically)
-  (sx-tab-frontpage t nil)
+  (elfeed)
 
   (window-configuration-to-register ?w))
+
 
 (as/setup-windows)
