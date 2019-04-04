@@ -9,3 +9,4 @@
 (package! mu4e-alert)
 (package! alert)
 (package! slack)
+(package! org-trello)
