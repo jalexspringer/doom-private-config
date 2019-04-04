@@ -17,6 +17,7 @@
 (load! "+gmail")
 (load! "+slack")
 (load! "+secrets")
+(load! "+trello")
 
 
 (setq doom-modeline-icon t)
