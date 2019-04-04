@@ -62,7 +62,7 @@
     (setq mu4e-change-filenames-when-moving t)
     ;;command used to get mail
     (setq mu4e-get-mail-command "mbsync -a")
-    (setq mu4e-update-interval 30)
+    (setq mu4e-update-interval 120)
 
     (setq message-citation-line-format "On %a, %b %d, %Y, %H:%M %p %f wrote:")
     (setq message-citation-line-function 'message-insert-formatted-citation-line)
@@ -79,3 +79,38 @@
 
 ;; every new email composition gets its own frame! (window)
 ;;(setq mu4e-compose-in-new-frame t)
+
+(setq mu4e-use-fancy-chars t)
+(setq mu4e-alert-mode-line t)
+(mu4e-alert-set-default-style 'libnotify)
+(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(alert-add-rule :category "mu4e-alert" :style 'fringe :predicate (lambda (_) (string-match-p "^mu4e-" (symbol-name major-mode))) :continue t)
+(setq mu4e-alert-email-notification-types '(subjects))
+(setq mu4e-alert-interesting-mail-query
+      (concat
+       "maildir:"
+       "\"/flux/Inbox\""
+       " OR maildir:"
+       "\"/impact/Inbox\""
+       "AND flag:unread"))
+
+(setq mu4e-maildir-shortcuts
+  '( ("/flux/Inbox"     . ?f)
+     ("/impact/Inbox"   . ?i)
+     ("/sent"      . ?s)))
+
+(setq mu4e-update-interval 30)
+(defun my-mu4e-choose-signature ()
+    "Insert one of a number of sigs"
+      (interactive)
+        (let ((message-signature
+	  (mu4e-read-option "Signature:"
+	   '(("formal" .
+             (concat
+		    "Alex Springer\n"
+		    "Solutions Architect\n"
+		    "[[https://flux7.com][Flux7]]"))
+			 ("informal" .
+			  "Alex\n")))))
+	      (message-insert-signature)))

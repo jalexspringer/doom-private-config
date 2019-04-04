@@ -18,7 +18,7 @@
 (load! "+slack")
 (load! "+secrets")
 (load! "+trello")
-
+(load! "+sx")
 
 (setq doom-modeline-icon t)
 (setq doom-modeline-major-mode-icon t)
@@ -29,43 +29,24 @@
 (setq doom-modeline-mu4e t)
 (setq find-file-visit-truename t)
 
-(setq mu4e-use-fancy-chars t)
-(setq mu4e-alert-mode-line t)
-(mu4e-alert-set-default-style 'libnotify)
-(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
-(alert-add-rule :category "mu4e-alert" :style 'fringe :predicate (lambda (_) (string-match-p "^mu4e-" (symbol-name major-mode))) :continue t)
-(setq mu4e-alert-email-notification-types '(subjects))
-(setq mu4e-alert-interesting-mail-query
-      (concat
-       "maildir:"
-       "\"/flux/Inbox\""
-       " OR maildir:"
-       "\"/impact/Inbox\""
-       "AND flag:unread"))
+(defun as/setup-windows ()
+  "Organize a series of windows for ultimate distraction."
+  (interactive)
+  (delete-other-windows)
 
-(setq mu4e-maildir-shortcuts
-  '( ("/flux/Inbox"     . ?f)
-     ("/impact/Inbox"   . ?i)
-     ("/sent"      . ?s)))
+  ;; Start slack and email
+  (slack-start)
+  (mu4e)
 
-(setq mu4e-update-interval 30)
-(defun my-mu4e-choose-signature ()
-    "Insert one of a number of sigs"
-      (interactive)
-        (let ((message-signature
-	  (mu4e-read-option "Signature:"
-	   '(("formal" .
-             (concat
-		    "Alex Springer\n"
-		    "Solutions Architect\n"
-		    "[[https://flux7.com][Flux7]]"))
-			 ("informal" .
-			  "Alex\n")))))
-	      (message-insert-signature)))
+  ;; Move to home.org
+  (split-window-horizontally)
+  (other-window 1)
+  (find-file "~/org/home.org")
 
+  ;; My RSS Feed goes on top:
+  (split-window-vertically)
+  (sx-tab-frontpage t nil)
 
-;;(find-file "~/org/home.org")
-;;(evil-window-vsplit)
-;;(mu4e)
+  (window-configuration-to-register ?w))
 
+(as/setup-windows)

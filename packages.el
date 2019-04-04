@@ -10,3 +10,4 @@
 (package! alert)
 (package! slack)
 (package! org-trello)
+(package! sx)
