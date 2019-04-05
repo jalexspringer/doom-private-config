@@ -19,7 +19,8 @@
     ",3" 'slack-message-embed-channel)
    (map!
     :map slack-mode-map
-    (:prefix ("," . "slack stuff")
+    :leader
+    (:prefix ("m" . "slack stuff")
       :desc "Kill buffer"                      "c"    #'slack-buffer-kill
       (:prefix ("r" . "react")
         :desc "Add reaction"                   "a" #'slack-message-add-reaction
@@ -29,10 +30,9 @@
         :desc "Pins list"                      "l" #'slack-room-pins-list
         :desc "Pin add"                        "a" #'slack-message-pins-add
         :desc "Pin remove"                     "r" #'slack-message-pins-remove)
-      (:prefix ("m" . "Messaging")
-        :desc "Write message in new buffer"    "m" #'slack-message-write-another-buffer
-        :desc "Edit message"                   "e" #'slack-message-edit
-        :desc "Message delete"                 "d" #'slack-message-delete)
+      :desc "Write message in new buffer"    "m" #'slack-message-write-another-buffer
+      :desc "Edit message"                   "e" #'slack-message-edit
+      :desc "Message delete"                 "d" #'slack-message-delete
       :desc "Updae messages"                   "u" #'slack-room-update-messages
       :desc "Insert emoji"                     "e" #'slack-insert-emoji
       :desc "Embed mention"                    "2" #'slack-message-embed-mention

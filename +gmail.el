@@ -78,7 +78,7 @@
 (setq mu4e-compose-context-policy nil)
 
 ;; every new email composition gets its own frame! (window)
-;;(setq mu4e-compose-in-new-frame t)
+(setq mu4e-compose-in-new-frame t)
 
 (setq mu4e-use-fancy-chars t)
 (setq mu4e-alert-mode-line t)

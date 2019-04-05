@@ -10,7 +10,7 @@
 (set-face-attribute 'default nil :height 120)
 (setq confirm-kill-emacs nil)
 
-(setq doome-theme 'doom-solarized-light)
+(setq doom-theme 'doom-solarized-light)
 
 (load! "+bindings")
 (load! "+org")
